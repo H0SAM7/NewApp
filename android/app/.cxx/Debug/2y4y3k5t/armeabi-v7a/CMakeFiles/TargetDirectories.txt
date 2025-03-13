@@ -1,0 +1,2 @@
+E:/griduation project/My-Visitor/android/app/.cxx/Debug/2y4y3k5t/armeabi-v7a/CMakeFiles/edit_cache.dir
+E:/griduation project/My-Visitor/android/app/.cxx/Debug/2y4y3k5t/armeabi-v7a/CMakeFiles/rebuild_cache.dir

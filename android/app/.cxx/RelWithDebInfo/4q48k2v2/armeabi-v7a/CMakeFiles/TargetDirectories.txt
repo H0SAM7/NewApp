@@ -1,0 +1,2 @@
+C:/Users/CS/zzzzzzzzzzzzz/my_visitor/android/app/.cxx/RelWithDebInfo/4q48k2v2/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/CS/zzzzzzzzzzzzz/my_visitor/android/app/.cxx/RelWithDebInfo/4q48k2v2/armeabi-v7a/CMakeFiles/rebuild_cache.dir
