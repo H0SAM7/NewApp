@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "510264322044",
-    "project_id": "my-vistor",
-    "storage_bucket": "my-vistor.firebasestorage.app"
+    "project_number": "524172959723",
+    "project_id": "temp-d8860",
+    "storage_bucket": "temp-d8860.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:510264322044:android:0322eb9cfc312d2d1f7479",
+        "mobilesdk_app_id": "1:524172959723:android:5e472f9603af4b614683ae",
         "android_client_info": {
           "package_name": "com.example.my_visitor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "510264322044-mf8r4fr2a5gbkij9oerc3h2njbqr2gss.apps.googleusercontent.com",
+          "client_id": "524172959723-604jmb1ddk03qgia0iiupjpa4t7bf540.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCQuH4hO2DE6PcbQm6QRd28A3BLAFuGyfo"
+          "current_key": "AIzaSyDJ9YZBSRfgt83IyCTnME1A1fHAbICcZlY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "510264322044-mf8r4fr2a5gbkij9oerc3h2njbqr2gss.apps.googleusercontent.com",
+              "client_id": "524172959723-604jmb1ddk03qgia0iiupjpa4t7bf540.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

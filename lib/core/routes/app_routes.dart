@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/bottom_navigator_bar.dart';
+import 'package:my_visitor/features/Notifications/views/notifi_view.dart';
 import 'package:my_visitor/features/auth/views/forget_view.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
@@ -18,6 +19,8 @@ abstract class AppRoutes {
     LoginView.id: (context) => const LoginView(),
         screenTSt.id: (context) => const screenTSt(),
         ForgetView.id: (context) => const ForgetView(),
+              //  NotifiView.id: (context) => const NotifiView(),
+
              //   SplashScreen1.id: (context) => const SplashScreen1(),
 
 
