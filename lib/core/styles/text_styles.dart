@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 abstract class AppStyles {
   static TextStyle style22White(BuildContext context) {
     return TextStyle(
-      color: Colors.white,
+      color: Colors.black,
       fontSize: getResponsiveSize(context, fontSize: 22),
       fontWeight: FontWeight.bold,
     );
@@ -13,7 +13,7 @@ abstract class AppStyles {
   static TextStyle style32(BuildContext context, Color color) {
     return TextStyle(
       color: color,
-      fontSize: getResponsiveSize(context, fontSize: 32),
+      fontSize: getResponsiveSize(context, fontSize: 22),
       fontWeight: FontWeight.w700,
     );
   }
@@ -21,10 +21,10 @@ abstract class AppStyles {
   static TextStyle style18(
     BuildContext context,
   ) {
-    return const TextStyle(
+    return  TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w400,
-        color: Color.fromARGB(255, 243, 248, 254));
+        color:Colors.black);
   }
 }
 

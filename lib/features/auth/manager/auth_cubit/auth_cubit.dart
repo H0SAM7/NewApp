@@ -11,6 +11,10 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
+
+
+
+// انشاء حساب
   Future<void> register({
     required String email,
     required String password,
@@ -53,7 +57,7 @@ class AuthCubit extends Cubit<AuthState> {
           log('User account created successfully.');
         } else {
           // If email verification fails, delete the user and throw an exception
-                await user.delete();
+          await user.delete();
           emit(AuthVerificationFailure());
 
           //emit(AuthFailure(errMessage: 'Email verification failed.'));
@@ -67,6 +71,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
+///////////////////////////////// تسجيل دخول
   Future<void> login({required String email, required String password}) async {
     emit(AuthLoading());
     try {
@@ -87,7 +92,9 @@ class AuthCubit extends Cubit<AuthState> {
       );
     }
   }
+//////////////
 
+//تسجيل دخول بجوجل
   Future<UserCredential?> signInWithGoogle() async {
     emit(AuthLoading());
     try {
@@ -130,6 +137,8 @@ class AuthCubit extends Cubit<AuthState> {
     }
     return null;
   }
+//////////////////////////////
+  /// اعادة تعيين الباسورد
 
   Future<void> resetPassword(String email) async {
     emit(AuthLoading());
@@ -143,4 +152,5 @@ class AuthCubit extends Cubit<AuthState> {
               .toString()));
     }
   }
+////////////////////////////////////
 }
