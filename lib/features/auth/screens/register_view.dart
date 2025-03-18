@@ -30,6 +30,8 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
+        var size = MediaQuery.sizeOf(context);
+
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
@@ -89,16 +91,8 @@ class _RegisterViewState extends State<RegisterView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      // Padding(
-                      //   padding: const EdgeInsets.all(8.0),
-                      //   child: CustomBack(),
-                      // ),
-
-                      const SizedBox(
-                        height: 10,
+                    SizedBox(
+                        height: size.height*.20,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -109,7 +103,7 @@ class _RegisterViewState extends State<RegisterView> {
                         ),
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 28,
                       ),
                       CustomTextFrom(
                         hint: 'enter name',

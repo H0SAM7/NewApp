@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
+import 'package:my_visitor/features/admins/admin_account.dart';
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:my_visitor/features/auth/screens/forget_view.dart';
 import 'package:my_visitor/features/auth/screens/register_view.dart';
@@ -71,8 +74,8 @@ class _LoginViewState extends State<LoginView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: size.h,
+                       SizedBox(
+                        height: size.height*.20,
                       ),
                       // Padding(
                       //   padding: const EdgeInsets.all(8.0),
@@ -86,6 +89,9 @@ class _LoginViewState extends State<LoginView> {
                           style: AppStyles.style22White(context)
                               .copyWith(fontSize: 25),
                         ),
+                      ),
+                         SizedBox(
+                        height: 28,
                       ),
                       CustomTextFrom(
                         hint: 'Enter Your Email',
@@ -124,6 +130,10 @@ class _LoginViewState extends State<LoginView> {
                           label: 'Login',
                           onTap: () async {
                             if (formKey.currentState!.validate()) {
+                              if (email==AdminAccount.email && password == AdminAccount.pass){
+                                log('Admin Mode');
+                                Navigator.pushReplacementNamed(context, BottomNavigator.id);
+                              }
                               await BlocProvider.of<AuthCubit>(context)
                                   .login(email: email!, password: password!);
                               // await FirebaseMessaging.instance
