@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:my_visitor/constants.dart';
@@ -13,13 +12,14 @@ class CustomLoadingIndicator extends StatelessWidget {
         child: SizedBox(
       height: h,
       width: w,
-      child:  LoadingIndicator(
-          indicatorType: Indicator.lineScalePulseOut,
-          colors: [
-            orangeColor,
-            Colors.white,
-            orangeColor
-          ]),
+      child: LoadingIndicator(
+        indicatorType: Indicator.lineScalePulseOut,
+        colors: [
+          Color(0xffCFE2FC),
+          Color(0xff4392F9),
+          orangeColor,
+        ],
+      ),
     ));
   }
 }

@@ -72,7 +72,7 @@ class _LoginViewState extends State<LoginView> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const SizedBox(
-                        height: 50,
+                        height: size.h,
                       ),
                       // Padding(
                       //   padding: const EdgeInsets.all(8.0),
