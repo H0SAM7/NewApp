@@ -1,4 +1,4 @@
-package com.example.my_visitor
+package com.taktof.app
 
 import io.flutter.embedding.android.FlutterActivity
 

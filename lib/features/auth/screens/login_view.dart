@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/bottom_navv_bar.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/utils/shared_pref.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
@@ -21,7 +22,6 @@ import 'package:my_visitor/features/auth/screens/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/screens/widgets/or_widget.dart';
 import 'package:my_visitor/temp/test.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -43,7 +43,7 @@ class _LoginViewState extends State<LoginView> {
       listener: (context, state) {
         if (state is AuthSuccess) {
           Navigator.pushReplacementNamed(context, BottomNavigator.id);
-        // Navigator.pushReplacementNamed(context, screenTSt.id);
+          // Navigator.pushReplacementNamed(context, screenTSt.id);
         } else if (state is AuthFailure) {
           showCustomAlert(
             context: context,
@@ -51,7 +51,7 @@ class _LoginViewState extends State<LoginView> {
             title: 'Error',
             description: state.errMessage,
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushReplacementNamed(context, LoginView.id);
             },
             actionTitle: 'Ok',
           );
@@ -74,14 +74,14 @@ class _LoginViewState extends State<LoginView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                       SizedBox(
-                        height: size.height*.20,
+                      SizedBox(
+                        height: size.height * .20,
                       ),
                       // Padding(
                       //   padding: const EdgeInsets.all(8.0),
                       //   child: CustomBack(),
                       // ),
-                  
+
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
@@ -90,13 +90,13 @@ class _LoginViewState extends State<LoginView> {
                               .copyWith(fontSize: 25),
                         ),
                       ),
-                         SizedBox(
+                      SizedBox(
                         height: 28,
                       ),
                       CustomTextFrom(
                         hint: 'Enter Your Email',
                         label: 'Email',
-                          prefixIcon: Icon(Icons.lock),
+                        prefixIcon: Icon(Icons.lock),
                         onChanged: (value) {
                           email = value;
                         },
@@ -104,7 +104,7 @@ class _LoginViewState extends State<LoginView> {
                       CustomTextFrom(
                         hint: "enter  your password",
                         label: 'Password',
-                          prefixIcon: Icon(Icons.lock),
+                        prefixIcon: Icon(Icons.lock),
                         isPasswordField: true,
                         onChanged: (value) {
                           password = value;
@@ -130,16 +130,22 @@ class _LoginViewState extends State<LoginView> {
                           label: 'Login',
                           onTap: () async {
                             if (formKey.currentState!.validate()) {
-                              if (email==AdminAccount.email && password == AdminAccount.pass){
-                                log('Admin Mode');
-                                Navigator.pushReplacementNamed(context, BottomNavigator.id);
-                              }
                               await BlocProvider.of<AuthCubit>(context)
                                   .login(email: email!, password: password!);
-                              // await FirebaseMessaging.instance
-                              //     .subscribeToTopic(notifiGroup);
+                              if (email == AdminAccount.email &&
+                                  password == AdminAccount.pass) {
+                                log('Admin Mode');
+                                SharedPreference().setBool('admin', true);
+                              }
+                              SharedPreference().setBool('admin', false);
+                              var admin = await SharedPreference().getBool(
+                                'admin',
+                              );
+                              log(admin.toString());
+                              await FirebaseMessaging.instance
+                                  .subscribeToTopic(notifiGroup);
                             }
-                  
+
                             //  FirebaseAuth.instance.authStateChanges().listen((User? user) {
                             //                   if (user == null) {
                             //                     Navigator.pushNamed(context, RegisterView.id);
@@ -159,12 +165,12 @@ class _LoginViewState extends State<LoginView> {
                           },
                         ),
                       ),
-                  
+
                       const SizedBox(
                         height: 15,
                       ),
                       const Center(child: OrWidget()),
-                  
+
                       const SizedBox(
                         height: 15,
                       ),
@@ -173,12 +179,12 @@ class _LoginViewState extends State<LoginView> {
                           onTap: () async {
                             await BlocProvider.of<AuthCubit>(context)
                                 .signInWithGoogle();
-                            // await FirebaseMessaging.instance
-                            //     .subscribeToTopic(notifiGroup);
+                            await FirebaseMessaging.instance
+                                .subscribeToTopic(notifiGroup);
                           },
                         ),
                       ),
-                  
+
                       const SizedBox(
                         height: 24,
                       ),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/bottom_navv_bar.dart';
+import 'package:my_visitor/features/Notifications/services/send_notifications_view.dart';
 import 'package:my_visitor/features/Notifications/views/notifi_view.dart';
+import 'package:my_visitor/features/Notifications/views/notifications_view.dart';
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
 import 'package:my_visitor/features/admins/presentation/views/add_products_view.dart';
+import 'package:my_visitor/features/admins/presentation/views/delete_view.dart';
 import 'package:my_visitor/features/auth/screens/forget_view.dart';
 import 'package:my_visitor/features/auth/screens/login_view.dart';
 import 'package:my_visitor/features/auth/screens/register_view.dart';
@@ -35,6 +38,8 @@ abstract class AppRoutes {
     CategoryProductsView.id: (context) => const CategoryProductsView(),
     NotifiView.id: (context) => const NotifiView(),
     FirstScreen.id: (context) => const FirstScreen(),
+    DeleteProductsView.id: (context) =>  DeleteProductsView(),
+    SendNotifactionsSendView.id: (context) =>  SendNotifactionsSendView(),
 
     // DetailsPage.id: (context) => const DetailsPage(productModel: ,),
 

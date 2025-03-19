@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:524172959723:android:5e472f9603af4b614683ae",
+        "mobilesdk_app_id": "1:524172959723:android:5f02a66b6eeb36404683ae",
         "android_client_info": {
-          "package_name": "com.example.my_visitor"
+          "package_name": "com.taktof.app"
         }
       },
       "oauth_client": [
@@ -29,6 +29,13 @@
             {
               "client_id": "524172959723-604jmb1ddk03qgia0iiupjpa4t7bf540.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "524172959723-iepgiu8vh59fcd7rm2ti5culr0sunf9o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myVisitor"
+              }
             }
           ]
         }

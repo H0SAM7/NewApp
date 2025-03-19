@@ -71,7 +71,7 @@ class _RegisterViewState extends State<RegisterView> {
               onPressed: () {
                           _isDialogShowing = false; // Reset flag after dismissing
 
-                Navigator.pop(context);
+          Navigator.pushReplacementNamed(context, RegisterView.id);
               },
               actionTitle: 'Ok',
             );
