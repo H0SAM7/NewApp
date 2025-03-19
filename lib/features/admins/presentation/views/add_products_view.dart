@@ -160,20 +160,20 @@ class _AddProductsViewState extends State<AddProductsView> {
                     const SizedBox(
                       height: 25,
                     ),
-                    IconButton(
-                      onPressed: () async {
-                        for (var pp in productList) {
-                            await BlocProvider.of<AdminCubit>(context)
-                                    .addProduct(productModel: pp);
+                    // IconButton(
+                    //   onPressed: () async {
+                    //     for (var pp in productList) {
+                    //         await BlocProvider.of<AdminCubit>(context)
+                    //                 .addProduct(productModel: pp);
                 
-                        }
-                        log('doonnne');
-                      },
-                      icon: Icon(
-                        Icons.import_contacts,
-                        size: 50,
-                      ),
-                    ),
+                    //     }
+                    //     log('doonnne');
+                    //   },
+                    //   icon: Icon(
+                    //     Icons.import_contacts,
+                    //     size: 50,
+                    //   ),
+                    // ),
                     loaded
                         ? CustomButton(
                             title: 'Send',
