@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
-import 'package:my_visitor/features/cart/presentation/views/widgets/cart_view_item.dart';
+import 'package:my_visitor/features/cart/views/widgets/cart_view_item.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/custom_product_item.dart';
 
 

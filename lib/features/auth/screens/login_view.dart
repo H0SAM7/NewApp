@@ -20,7 +20,6 @@ import 'package:my_visitor/features/auth/screens/widgets/custom_text_field.dart'
 import 'package:my_visitor/features/auth/screens/widgets/google_button.dart';
 import 'package:my_visitor/features/auth/screens/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/screens/widgets/or_widget.dart';
-import 'package:my_visitor/temp/test.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class LoginView extends StatefulWidget {

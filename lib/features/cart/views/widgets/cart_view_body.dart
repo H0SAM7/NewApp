@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_visitor/constants.dart';
-import 'package:my_visitor/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
-import 'package:my_visitor/features/cart/presentation/views/widgets/cart_list_view.dart';
+import 'package:my_visitor/features/cart/manager/cart_cubit/cart_cubit.dart';
+import 'package:my_visitor/features/cart/views/widgets/cart_list_view.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({

@@ -5,8 +5,8 @@ import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
-import 'package:my_visitor/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
-import 'package:my_visitor/features/cart/presentation/views/widgets/add_to_cart_button.dart';
+import 'package:my_visitor/features/cart/manager/cart_cubit/cart_cubit.dart';
+import 'package:my_visitor/features/cart/views/widgets/add_to_cart_button.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class ProductDetails extends StatelessWidget {

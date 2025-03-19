@@ -2,20 +2,10 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:my_visitor/features/admins/data/admins_repo/admins_repo.dart';
-import 'package:my_visitor/features/admins/data/models/discount_model.dart';
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
 
 
 class AdminsRepoImpl extends AdminsRepo {
-  @override
-  Future<void> addDiscount({required DiscountModel discountModel}) async {
-    try {
-      await firestore.collection('sales').add(discountModel.toMap());
-      log('adding done');
-    } catch (e) {
-      log('Error adding discount: $e');
-    }
-  }
 
   @override
   Future<void> addProduct({required ProductModel productModel}) async {

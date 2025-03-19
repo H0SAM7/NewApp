@@ -7,7 +7,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 import 'package:my_visitor/features/admins/data/admins_repo/admins_repo_impl.dart';
-import 'package:my_visitor/features/admins/data/models/discount_model.dart';
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -45,15 +44,6 @@ class AdminCubit extends Cubit<AdminState> {
     }
   }
 
-  Future<void> addDiscount({required DiscountModel discountModel}) async {
-    emit(AdminLoading());
-    try {
-      await AdminsRepoImpl().addDiscount(discountModel: discountModel);
-      emit(AdminSuccess());
-    } catch (e) {
-      emit(AdminFailure(errMessage: e.toString()));
-    }
-  }
 
   final ImagePicker _picker = ImagePicker();
   final SupabaseClient supabase = Supabase.instance.client;

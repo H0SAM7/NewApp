@@ -8,8 +8,8 @@ import 'package:my_visitor/features/Notifications/services/send_notifications_vi
 import 'package:my_visitor/features/Notifications/views/notifi_view.dart';
 import 'package:my_visitor/features/admins/presentation/views/add_products_view.dart';
 import 'package:my_visitor/features/admins/presentation/views/delete_view.dart';
-import 'package:my_visitor/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
-import 'package:my_visitor/features/cart/presentation/views/cart_view.dart';
+import 'package:my_visitor/features/cart/manager/cart_cubit/cart_cubit.dart';
+import 'package:my_visitor/features/cart/views/cart_view.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/setting_container.dart';
 
 // ignore: must_be_immutable

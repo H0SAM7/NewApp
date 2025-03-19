@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
-import 'package:my_visitor/features/cart/presentation/views/cart_view.dart';
+import 'package:my_visitor/features/cart/views/cart_view.dart';
 import 'package:my_visitor/features/home/presentation/views/categories_view.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
 import 'package:my_visitor/features/home/presentation/views/settings_view.dart';
@@ -41,7 +41,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
         actions: [
           IconButton(
               onPressed: () {
-             //   Navigator.pushNamed(context, SettingsScreen.id);
+          //   Navigator.pushNamed(context, SettingsScreen.id);
               },
               icon: Icon(
                 Icons.person,

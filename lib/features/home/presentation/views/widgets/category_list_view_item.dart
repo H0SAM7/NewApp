@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
-import 'package:my_visitor/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:my_visitor/features/cart/manager/cart_cubit/cart_cubit.dart';
 import 'package:my_visitor/features/home/presentation/views/product_details_view.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/custom_image_procduct.dart';
 

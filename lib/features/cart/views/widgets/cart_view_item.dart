@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
-import 'package:my_visitor/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:my_visitor/features/cart/manager/cart_cubit/cart_cubit.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/custom_image_procduct.dart';
 
 class CartViewItem extends StatelessWidget {

@@ -8,7 +8,7 @@ import 'package:my_visitor/core/widgets/crash_view.dart';
 import 'package:my_visitor/features/auth/screens/login_view.dart';
 import 'package:my_visitor/features/auth/screens/register_view.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/product_details.dart';
-import 'package:my_visitor/features/splash/read_crash_value.dart';
+import 'package:my_visitor/core/services/read_crash_value.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});

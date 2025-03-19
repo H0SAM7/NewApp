@@ -5,7 +5,7 @@ import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/categories_list_view.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/custom_product_item.dart';
-import 'package:my_visitor/services/fire_base_services.dart';
+import 'package:my_visitor/core/services/fire_base_services.dart';
 
 
 class CategoryProductsView extends StatelessWidget {
