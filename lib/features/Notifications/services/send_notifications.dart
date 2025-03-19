@@ -17,7 +17,7 @@ class NotificationsServices {
       'Content-Type': 'application/json'
     };
     var url = Uri.parse(
-        'https://fcm.googleapis.com/v1/projects/x-ray-2c7c1/messages:send');
+        'https://fcm.googleapis.com/v1/projects/temp-d8860/messages:send');
 
     var body = {
       "message": {

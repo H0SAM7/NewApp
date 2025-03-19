@@ -19,7 +19,8 @@ class SendNotifactionsSendView extends StatefulWidget {
   static String id = 'SendNotifactionsSendView';
   @override
   // ignore: library_private_types_in_public_api
-  _sendNotifactionsSendViewState createState() => _sendNotifactionsSendViewState();
+  _sendNotifactionsSendViewState createState() =>
+      _sendNotifactionsSendViewState();
 }
 
 // ignore: camel_case_types
@@ -43,8 +44,8 @@ class _sendNotifactionsSendViewState extends State<SendNotifactionsSendView> {
 
   Future<void> getAccessToken() async {
     try {
-      final serviceAccountJson = await rootBundle.loadString(
-        'assets/adminsdk.json');
+      final serviceAccountJson =
+          await rootBundle.loadString('assets/adminsdk.json');
 
       final accountCredentials = ServiceAccountCredentials.fromJson(
         json.decode(serviceAccountJson),
@@ -96,6 +97,7 @@ class _sendNotifactionsSendViewState extends State<SendNotifactionsSendView> {
           CustomTextFrom(
             hint: '',
             label: "title",
+            controller: titleController,
             onChanged: (value) {
               titleController.text = value;
             },
@@ -103,6 +105,7 @@ class _sendNotifactionsSendViewState extends State<SendNotifactionsSendView> {
           CustomTextFrom(
             hint: '',
             label: "subtitle",
+            controller: subTitlecontroller,
             onChanged: (value) {
               subTitlecontroller.text = value;
             },
@@ -118,6 +121,7 @@ class _sendNotifactionsSendViewState extends State<SendNotifactionsSendView> {
                   subTitlecontroller.text,
                   accessToken,
                 );
+
                 showCustomAlert(
                     context: context,
                     type: AlertType.success,
@@ -125,11 +129,14 @@ class _sendNotifactionsSendViewState extends State<SendNotifactionsSendView> {
                     description: 'Send done',
                     onPressed: () {
                       Navigator.pop(context);
+                      setState(() {
+                        titleController.clear();
+                        subTitlecontroller.clear();
+                      });
                     },
                     actionTitle: 'Ok');
 
                 log('send message done');
-                Navigator.pop(context);
               } catch (e) {
                 log('send message err:$e');
               }

@@ -5,12 +5,8 @@ import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import 'package:my_visitor/features/home/presentation/manager/all_products_cubit/all_products_cubit.dart';
-import 'package:my_visitor/features/home/presentation/views/category_products_view.dart'
-    show
-        CategoryProductsView,
-        CategoryProductsViewForHome,
-        ProductsListViewForHome;
-import 'package:my_visitor/features/home/presentation/views/widgets/categories_list_view.dart';
+import 'package:my_visitor/features/home/presentation/views/category_products_view.dart';
+
 import 'package:my_visitor/features/home/presentation/views/widgets/custom_adv_widget.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/products_list_view.dart';
 

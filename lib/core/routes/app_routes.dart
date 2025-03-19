@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:my_visitor/bottom_navv_bar.dart';
 import 'package:my_visitor/features/Notifications/services/send_notifications_view.dart';
 import 'package:my_visitor/features/Notifications/views/notifi_view.dart';
-import 'package:my_visitor/features/Notifications/views/notifications_view.dart';
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
 import 'package:my_visitor/features/admins/presentation/views/add_products_view.dart';
 import 'package:my_visitor/features/admins/presentation/views/delete_view.dart';
