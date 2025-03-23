@@ -49,7 +49,7 @@ double newheight = size.height - padding.top - padding.bottom;
                 fontFamily: 'Inter',
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: orangeColor
+                color: redColor
               ),),
             ),
           )

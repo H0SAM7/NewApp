@@ -23,7 +23,7 @@ final void Function()? onTap;
           height: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: color ?? orangeColor,
+            color: color ?? redColor,
           ),
           child: Padding(
             padding: const EdgeInsets.only(left: 8.0),

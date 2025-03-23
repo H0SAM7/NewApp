@@ -1,21 +1,17 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:bloc/bloc.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 import 'package:my_visitor/features/admins/data/admins_repo/admins_repo_impl.dart';
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
 part 'admin_state.dart';
 
 class AdminCubit extends Cubit<AdminState> {
   AdminCubit() : super(AdminInitial());
 
-  Future<void> addProduct( {required ProductModel productModel}) async {
+  Future<void> addProduct({required ProductModel productModel}) async {
     emit(AdminLoading());
     try {
       await AdminsRepoImpl().addProduct(productModel: productModel);
@@ -35,7 +31,7 @@ class AdminCubit extends Cubit<AdminState> {
     }
   }
 
-  Future<void> updateProduct() async {
+  Future<void> updateProduct({required ProductModel productModel}) async {
     emit(AdminLoading());
     try {
       emit(AdminSuccess());
@@ -44,10 +40,9 @@ class AdminCubit extends Cubit<AdminState> {
     }
   }
 
-
   final ImagePicker _picker = ImagePicker();
   final SupabaseClient supabase = Supabase.instance.client;
-  String? _imageLink;
+  String? _imageLink                 ;
   String? get imageLink => _imageLink;
 
   Future<String> uploadImage({required XFile image}) async {
@@ -59,15 +54,11 @@ class AdminCubit extends Cubit<AdminState> {
 
       File file = File(image.path);
       String fileName = "images/${DateTime.now().millisecondsSinceEpoch}.jpg";
-
       await supabase.storage.from('images').upload(fileName, file);
-
       final String publicUrl =
           supabase.storage.from('images').getPublicUrl(fileName);
       _imageLink = publicUrl;
-
       log("✅ تم رفع الصورة وحفظ الرابط بنجاح!");
-
       return publicUrl;
     } catch (e) {
       log("❌ خطأ: $e");

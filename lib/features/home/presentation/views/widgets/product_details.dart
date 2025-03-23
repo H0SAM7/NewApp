@@ -55,7 +55,7 @@ class ProductDetails extends StatelessWidget {
                 child: Container(
                   width: 200,
                   decoration: BoxDecoration(
-                    color: orangeColor,
+                    color: redColor,
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: FittedBox(

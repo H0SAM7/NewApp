@@ -17,7 +17,7 @@ class CartViewBody extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(
             width: .2,
-            color: orangeColor,
+            color: redColor,
           ),
         ),
         child: Column(

@@ -39,7 +39,7 @@ class CategoryListViewProductItem extends StatelessWidget {
             title: Text(
               _truncateText(productModel.title, 4),
               style: TextStyle(
-                color: !isDarkMode ? orangeColor : Colors.white,
+                color: !isDarkMode ? redColor : Colors.white,
                 fontWeight: FontWeight.bold,
                 fontFamily: GoogleFonts.amiri().fontFamily,
                 fontSize: 18,
@@ -51,7 +51,7 @@ class CategoryListViewProductItem extends StatelessWidget {
             subtitle: Text(
               "\$ ${"Free"}",
               style: TextStyle(
-                color: !isDarkMode ? orangeColor : Colors.white,
+                color: !isDarkMode ? redColor : Colors.white,
                 fontSize: 18,
               ),
             ),
@@ -62,7 +62,7 @@ class CategoryListViewProductItem extends StatelessWidget {
               },
               icon: Icon(
                 FontAwesomeIcons.cartShopping,
-                color: !isDarkMode ? orangeColor : Colors.white,
+                color: !isDarkMode ? redColor : Colors.white,
               ),
             ),
             contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),

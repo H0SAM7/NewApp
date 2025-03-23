@@ -17,7 +17,7 @@ class CustomCategoryItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(25),
         child: Container(
           decoration: BoxDecoration(
-              color: orangeColor,
+              color: redColor,
               image: DecorationImage(
                   image: AssetImage("assets/images/$name.jpg"),
                   fit: BoxFit.fill)),

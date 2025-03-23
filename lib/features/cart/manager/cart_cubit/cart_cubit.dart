@@ -32,17 +32,37 @@ class CartCubit extends Cubit<CartState> {
     emit(FeachAllItemsSuccess());
   }
 
-  clearCart() async {
-
-
+clearCart() async {
   try {
     var cartBox = await Hive.openBox<ProductModel>('cart');
-    
     await cartBox.clear(); // This clears all items from the box
-   await fetchAllItems();
+    await fetchAllItems(); // Refresh the list after clearing
   } catch (e) {
     log(e.toString());
   }
 }
+
+
+  addItemToMyproducts(
+    ProductModel cartItem,
+  ) async {
+    emit(AddCartLoading());
+
+    try {
+      var cartBox = Hive.box<ProductModel>('myProducts');
+      await cartBox.add(cartItem);
+      emit(AddCartSuccess());
+    } catch (e) {
+      emit(AddCartFailure(errorMessage: e.toString()));
+    }
+  }
+
+    List<ProductModel> myProducts = [];
+  fetchMyProducts() async {
+    var itemsBox = Hive.box<ProductModel>('myProducts');
+    myProducts = itemsBox.values.toList();
+    emit(FeachAllItemsSuccess());
+  }
+
 
 }

@@ -104,7 +104,7 @@ class CustomAppBar extends StatelessWidget {
               onPressed: () {},
               icon: Image.asset(
                 Assets.iconsMenu,
-                color: orangeColor,
+                color: redColor,
               ),
             ),
             Center(
@@ -114,7 +114,7 @@ class CustomAppBar extends StatelessWidget {
                 onPressed: () {},
                 icon: Icon(
                   Icons.person,
-                  color: orangeColor,
+                  color: redColor,
                 )),
           ],
         ),

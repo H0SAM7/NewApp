@@ -17,12 +17,15 @@ import 'package:my_visitor/features/home/presentation/manager/search_cubit/searc
 import 'package:my_visitor/firebase_options.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-    await Hive.initFlutter();
+  await Hive.initFlutter();
 
   Hive.registerAdapter(ProductModelAdapter());
   await Hive.openBox<ProductModel>('cart');
+  await Hive.openBox('profileBox');
+  await Hive.openBox<ProductModel>('myProducts');
 
   await Supabase.initialize(
     url: 'https://crgwwfzifppleytrqcmh.supabase.co',
@@ -35,7 +38,7 @@ void main() async {
   );
   Bloc.observer = SimpleBlocObserever();
   FirebaseMessaging messaging = FirebaseMessaging.instance;
-  NotificationSettings settings = await messaging.requestPermission(
+   await messaging.requestPermission(
     alert: true,
     badge: true,
     sound: true,
@@ -43,7 +46,7 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: false,
-      builder: (context) => MyApp(), // Wrap your app
+      builder: (context) => MyApp(),
     ),
   );
 }

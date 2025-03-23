@@ -18,9 +18,9 @@ class NotificationsView extends StatelessWidget {
           backgroundColor: Colors.white,
           bottom: TabBar(
             unselectedLabelStyle: const TextStyle(color: Color(0xffA5A7B9)),
-            labelColor: orangeColor,
-            indicatorColor: orangeColor,
-            dividerColor: orangeColor,
+            labelColor: redColor,
+            indicatorColor: redColor,
+            dividerColor: redColor,
             tabs: const <Widget>[
               Tab(
                 text: 'Notifications',

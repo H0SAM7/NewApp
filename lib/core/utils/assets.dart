@@ -46,6 +46,8 @@ class Assets {
 
   static const String imagesAdv2 = "assets/images/adv2.png";
 
+  static const String imagesAvatar = "assets/images/avatar.png";
+
   static const String imagesBooks = "assets/images/Books.jpg";
 
   static const String imagesCleaningTools = "assets/images/Cleaning_Tools.jpg";
@@ -60,7 +62,11 @@ class Assets {
 
   static const String imagesLogo = "assets/images/logo.png";
 
+  static const String imagesLogoIcon = "assets/images/logoIcon.png";
+
   static const String imagesMedicalSupplies = "assets/images/MedicalSupplies.jpg";
+
+  static const String imagesNewLogo = "assets/images/new_logo.png";
 
   static const String imagesNoNotifi = "assets/images/no_notifi.png";
 

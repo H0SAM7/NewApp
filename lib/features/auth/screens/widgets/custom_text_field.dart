@@ -11,11 +11,12 @@ class CustomTextFrom extends StatefulWidget {
     this.validator,
     this.isPasswordField = false,
     this.controller,
-    this.enabel = true, this.prefixIcon,
+    this.enabel = true, this.prefixIcon, this.readOnly,
   });
   final void Function(String)? onChanged;
   final String label, hint;
   final bool hide;
+final  bool? readOnly ;
   final bool? enabel;
   final String? Function(String?)? validator;
   final bool isPasswordField;
@@ -33,7 +34,7 @@ class _CustomTextFromState extends State<CustomTextFrom> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
-        
+        readOnly:widget.readOnly?? false ,
         controller: widget.controller,
         validator: widget.validator ??
             (value) {
@@ -52,12 +53,12 @@ class _CustomTextFromState extends State<CustomTextFrom> {
           label: Text(
             widget.label,
             style: TextStyle(
-                color: orangeColor, fontSize: 16, fontWeight: FontWeight.bold,),
+                color: redColor, fontSize: 16, fontWeight: FontWeight.bold,),
           ),
           hintText: widget.hint,
           enabled: widget.enabel ?? true,
           border: OutlineInputBorder(
-            borderSide: BorderSide(color: orangeColor),
+            borderSide: BorderSide(color: redColor),
             borderRadius: const BorderRadius.all(Radius.circular(16)),
           ),
           enabledBorder: outlineInputBorder,
@@ -67,7 +68,7 @@ class _CustomTextFromState extends State<CustomTextFrom> {
               ? IconButton(
                   icon: Icon(
                     _isObscure ? Icons.visibility : Icons.visibility_off,
-                    color: orangeColor,
+                    color: redColor,
                   ),
                   onPressed: () {
                     setState(() {

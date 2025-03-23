@@ -1,5 +1,4 @@
 import 'package:my_visitor/constants.dart';
-import 'package:my_visitor/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class GoogleButton extends StatelessWidget {
@@ -17,7 +16,7 @@ class GoogleButton extends StatelessWidget {
         height: 50,
         width: 300,
         decoration: BoxDecoration(
-          border: Border.all(width: .7,color: orangeColor),
+          border: Border.all(width: .7,color: redColor),
           borderRadius: BorderRadius.circular(10),
           //color: orangeColor,
         ),

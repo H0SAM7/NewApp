@@ -5,6 +5,7 @@ import 'package:my_visitor/features/cart/views/cart_view.dart';
 import 'package:my_visitor/features/home/presentation/views/categories_view.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
 import 'package:my_visitor/features/home/presentation/views/settings_view.dart';
+import 'package:my_visitor/profile/views/profile_screen.dart';
 
 class BottomNavigator extends StatefulWidget {
   const BottomNavigator({super.key});
@@ -28,24 +29,18 @@ class _BottomNavigatorState extends State<BottomNavigator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: Image.asset(
-            Assets.iconsMenu,
-            color: orangeColor,
-          ),
-        ),
+        leading: SizedBox(),
         title: Center(
-          child: Image.asset(Assets.imagesLogo),
+          child: Image.asset(Assets.imagesNewLogo),
         ),
         actions: [
           IconButton(
               onPressed: () {
-          //   Navigator.pushNamed(context, SettingsScreen.id);
+           Navigator.pushNamed(context, ProfileScreen.id);
               },
               icon: Icon(
                 Icons.person,
-                color: orangeColor,
+                color: redColor,
               )),
         ],
       ),
@@ -60,7 +55,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           BottomNavigationBarItem(
             icon: Image.asset(
               Assets.iconsHome,
-              color: orangeColor,
+              color: redColor,
               height: 20,
             ),
             label: 'Home',
@@ -68,27 +63,27 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.category,
-              color: orangeColor,
+              color: redColor,
             ),
             label: 'Categories',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_cart,
-              color: orangeColor,
+              color: redColor,
             ),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.settings,
-              color: orangeColor,
+              color: redColor,
             ),
             label: 'Settings',
           ),
         ],
-        selectedItemColor: orangeColor,
-        selectedLabelStyle: TextStyle(color: orangeColor),
+        selectedItemColor: redColor,
+        selectedLabelStyle: TextStyle(color: redColor),
         selectedFontSize: 10,
         showUnselectedLabels: false,
       ),

@@ -10,6 +10,7 @@ import 'package:my_visitor/features/admins/data/models/product_model.dart';
 import 'package:my_visitor/features/admins/presentation/manager/admin_cubit/admin_cubit.dart';
 import 'package:my_visitor/features/admins/presentation/views/widgets/custom_dropdown.dart';
 import 'package:my_visitor/features/auth/screens/widgets/custom_text_field.dart';
+import 'package:my_visitor/features/cart/manager/cart_cubit/cart_cubit.dart';
 
 class AddProductsView extends StatefulWidget {
   const AddProductsView({super.key});
@@ -87,7 +88,7 @@ class _AddProductsViewState extends State<AddProductsView> {
         },
         child: RefreshIndicator(
           color: Colors.white,
-          backgroundColor: orangeColor,
+          backgroundColor: redColor,
           onRefresh: () async {
             // Replace this delay with the code to be executed during refresh
             // and return asynchronous code
@@ -144,8 +145,8 @@ class _AddProductsViewState extends State<AddProductsView> {
                             child: _image == null
                                 ? Icon(Icons.upload,
                                     size: 40,
-                                    color:
-                                        const Color.fromARGB(255, 255, 255, 255))
+                                    color: const Color.fromARGB(
+                                        255, 255, 255, 255))
                                 : null,
                           ),
                         ),
@@ -165,7 +166,7 @@ class _AddProductsViewState extends State<AddProductsView> {
                     //     for (var pp in productList) {
                     //         await BlocProvider.of<AdminCubit>(context)
                     //                 .addProduct(productModel: pp);
-                
+
                     //     }
                     //     log('doonnne');
                     //   },
@@ -177,7 +178,7 @@ class _AddProductsViewState extends State<AddProductsView> {
                     loaded
                         ? CustomButton(
                             title: 'Send',
-                            color: orangeColor,
+                            color: redColor,
                             onTap: () async {
                               if (fromKey.currentState!.validate()) {
                                 await BlocProvider.of<AdminCubit>(context)
@@ -193,6 +194,18 @@ class _AddProductsViewState extends State<AddProductsView> {
                                 log('send data Done');
                                 loaded = false;
                                 setState(() {});
+                                await BlocProvider.of<CartCubit>(context)
+                                    .addItem(
+                                  ProductModel(
+                                    code: codeController.text,
+                                    title: titleController.text,
+                                    description: descriptionController.text,
+                                    category: categoryController.text,
+                                    image: image!,
+                                  ),
+                                );
+                                await BlocProvider.of<CartCubit>(context)
+                                    .fetchMyProducts();
                               }
                             },
                           )
@@ -246,63 +259,68 @@ final List<String> categories = [
   "Other"
 ];
 
-
-
-
 List<ProductModel> productList = [
   ProductModel(
     code: "8",
     title: "Classic Red Jogger Sweatpants",
-    description: "Experience ultimate comfort with our red jogger sweatpants...",
+    description:
+        "Experience ultimate comfort with our red jogger sweatpants...",
     category: "Clothing",
     image: "https://i.imgur.com/9LFjwpI.jpeg",
   ),
   ProductModel(
     code: "12",
     title: "Classic Black Baseball Cap",
-    description: "Elevate your casual wear with this timeless black baseball cap...",
+    description:
+        "Elevate your casual wear with this timeless black baseball cap...",
     category: "Clothing",
     image: "https://i.imgur.com/KeqG6r4.jpeg",
   ),
   ProductModel(
     code: "13",
     title: "Classic Olive Chino Shorts",
-    description: "Elevate your casual wardrobe with these classic olive chino shorts...",
+    description:
+        "Elevate your casual wardrobe with these classic olive chino shorts...",
     category: "Clothing",
     image: "https://i.imgur.com/UsFIvYs.jpeg",
   ),
   ProductModel(
     code: "14",
     title: "Classic High-Waisted Athletic Shorts",
-    description: "Stay comfortable and stylish with our Classic High-Waisted Athletic Shorts...",
+    description:
+        "Stay comfortable and stylish with our Classic High-Waisted Athletic Shorts...",
     category: "Clothing",
     image: "https://i.imgur.com/eGOUveI.jpeg",
   ),
   ProductModel(
     code: "18",
     title: "Sleek White & Orange Wireless Gaming Controller",
-    description: "Elevate your gaming experience with this state-of-the-art wireless controller...",
+    description:
+        "Elevate your gaming experience with this state-of-the-art wireless controller...",
     category: "Electronics",
     image: "https://i.imgur.com/ZANVnHE.jpeg",
   ),
   ProductModel(
     code: "19",
     title: "Sleek Wireless Headphone & Inked Earbud Set",
-    description: "Experience the fusion of style and sound with this sophisticated audio set...",
+    description:
+        "Experience the fusion of style and sound with this sophisticated audio set...",
     category: "Electronics",
     image: "https://i.imgur.com/yVeIeDa.jpeg",
   ),
   ProductModel(
     code: "21",
     title: "Efficient 2-Slice Toaster",
-    description: "Enhance your morning routine with our sleek 2-slice toaster...",
+    description:
+        "Enhance your morning routine with our sleek 2-slice toaster...",
     category: "Electronics",
     image: "https://i.imgur.com/keVCVIa.jpeg",
   ),
   ProductModel(
     code: "22",
     title: "Sleek Wireless Computer Mouse",
-    description: "Experience smooth and precise navigation with this modern wireless mouse...",
+    description:
+        "Experience smooth and precise navigation with this modern wireless mouse...",
     category: "Electronics",
     image: "https://i.imgur.com/w3Y8NwQ.jpeg",
   ),
@@ -316,42 +334,48 @@ List<ProductModel> productList = [
   ProductModel(
     code: "24",
     title: "Sleek Modern Laptop for Professionals",
-    description: "Experience cutting-edge technology and elegant design with our latest laptop...",
+    description:
+        "Experience cutting-edge technology and elegant design with our latest laptop...",
     category: "Electronics",
     image: "https://i.imgur.com/ItHcq7o.jpeg",
   ),
   ProductModel(
     code: "25",
     title: "Stylish Red & Silver Over-Ear Headphones",
-    description: "Immerse yourself in superior sound quality with these sleek red and silver headphones...",
+    description:
+        "Immerse yourself in superior sound quality with these sleek red and silver headphones...",
     category: "Electronics",
     image: "https://i.imgur.com/YaSqa06.jpeg",
   ),
   ProductModel(
     code: "26",
     title: "Sleek Mirror Finish Phone Case",
-    description: "Enhance your smartphone's look with this ultra-sleek mirror finish phone case...",
+    description:
+        "Enhance your smartphone's look with this ultra-sleek mirror finish phone case...",
     category: "Accessories",
     image: "https://i.imgur.com/yb9UQKL.jpeg",
   ),
   ProductModel(
     code: "27",
     title: "Sleek Smartwatch with Vibrant Display",
-    description: "Experience modern timekeeping with our high-tech smartwatch...",
+    description:
+        "Experience modern timekeeping with our high-tech smartwatch...",
     category: "Electronics",
     image: "https://i.imgur.com/LGk9Jn2.jpeg",
   ),
   ProductModel(
     code: "28",
     title: "Sleek Modern Leather Sofa",
-    description: "Enhance the elegance of your living space with our Sleek Modern Leather Sofa...",
+    description:
+        "Enhance the elegance of your living space with our Sleek Modern Leather Sofa...",
     category: "Furniture",
     image: "https://i.imgur.com/Qphac99.jpeg",
   ),
   ProductModel(
     code: "29",
     title: "Mid-Century Modern Wooden Dining Table",
-    description: "Elevate your dining room with this sleek Mid-Century Modern dining table...",
+    description:
+        "Elevate your dining room with this sleek Mid-Century Modern dining table...",
     category: "Furniture",
     image: "https://i.imgur.com/DMQHGA0.jpeg",
   ),
@@ -365,56 +389,64 @@ List<ProductModel> productList = [
   ProductModel(
     code: "31",
     title: "Modern Elegance Teal Armchair",
-    description: "Elevate your living space with this beautifully crafted armchair...",
+    description:
+        "Elevate your living space with this beautifully crafted armchair...",
     category: "Furniture",
     image: "https://i.imgur.com/6wkyyIN.jpeg",
   ),
   ProductModel(
     code: "32",
     title: "Elegant Solid Wood Dining Table",
-    description: "Enhance your dining space with this sleek, contemporary dining table...",
+    description:
+        "Enhance your dining space with this sleek, contemporary dining table...",
     category: "Furniture",
     image: "https://i.imgur.com/4lTaHfF.jpeg",
   ),
   ProductModel(
     code: "33",
     title: "Modern Minimalist Workstation Setup",
-    description: "Elevate your home office with our Modern Minimalist Workstation Setup...",
+    description:
+        "Elevate your home office with our Modern Minimalist Workstation Setup...",
     category: "Furniture",
     image: "https://i.imgur.com/3oXNBst.jpeg",
   ),
   ProductModel(
     code: "34",
     title: "Modern Ergonomic Office Chair",
-    description: "Elevate your office space with this sleek and comfortable Modern Ergonomic Office Chair...",
+    description:
+        "Elevate your office space with this sleek and comfortable Modern Ergonomic Office Chair...",
     category: "Furniture",
     image: "https://i.imgur.com/3dU0m72.jpeg",
   ),
   ProductModel(
     code: "35",
     title: "Futuristic Holographic Soccer Cleats",
-    description: "Step onto the field and stand out from the crowd with these eye-catching holographic soccer cleats...",
+    description:
+        "Step onto the field and stand out from the crowd with these eye-catching holographic soccer cleats...",
     category: "Shoes",
     image: "https://i.imgur.com/qNOjJje.jpeg",
   ),
   ProductModel(
     code: "36",
     title: "Rainbow Glitter High Heels",
-    description: "Step into the spotlight with these eye-catching rainbow glitter high heels...",
+    description:
+        "Step into the spotlight with these eye-catching rainbow glitter high heels...",
     category: "Shoes",
     image: "https://i.imgur.com/62gGzeF.jpeg",
   ),
   ProductModel(
     code: "37",
     title: "Chic Summer Denim Espadrille Sandals",
-    description: "Step into summer with style in our denim espadrille sandals...",
+    description:
+        "Step into summer with style in our denim espadrille sandals...",
     category: "Shoes",
     image: "https://i.imgur.com/9qrmE1b.jpeg",
   ),
   ProductModel(
     code: "38",
     title: "Vibrant Runners: Bold Orange & Blue Sneakers",
-    description: "Step into style with these eye-catching sneakers featuring a striking combination...",
+    description:
+        "Step into style with these eye-catching sneakers featuring a striking combination...",
     category: "Shoes",
     image: "https://i.imgur.com/hKcMNJs.jpeg",
   ),
@@ -428,7 +460,8 @@ List<ProductModel> productList = [
   ProductModel(
     code: "40",
     title: "Futuristic Silver and Gold High-Top Sneaker",
-    description: "Step into the future with this eye-catching high-top sneaker...",
+    description:
+        "Step into the future with this eye-catching high-top sneaker...",
     category: "Shoes",
     image: "https://i.imgur.com/npLfCGq.jpeg",
   ),
@@ -449,35 +482,40 @@ List<ProductModel> productList = [
   ProductModel(
     code: "43",
     title: "Elegant Purple Leather Loafers",
-    description: "Step into sophistication with our Elegant Purple Leather Loafers...",
+    description:
+        "Step into sophistication with our Elegant Purple Leather Loafers...",
     category: "Shoes",
     image: "https://i.imgur.com/Au8J9sX.jpeg",
   ),
   ProductModel(
     code: "44",
     title: "Classic Blue Suede Casual Shoes",
-    description: "Step into comfort with our Classic Blue Suede Casual Shoes...",
+    description:
+        "Step into comfort with our Classic Blue Suede Casual Shoes...",
     category: "Shoes",
     image: "https://i.imgur.com/sC0ztOB.jpeg",
   ),
   ProductModel(
     code: "45",
     title: "Sleek Futuristic Electric Bicycle",
-    description: "This modern electric bicycle combines style and efficiency...",
+    description:
+        "This modern electric bicycle combines style and efficiency...",
     category: "Other",
     image: "https://i.imgur.com/BG8J0Fj.jpg",
   ),
   ProductModel(
     code: "46",
     title: "Sleek All-Terrain Go-Kart",
-    description: "Experience the thrill of outdoor adventures with our Sleek All-Terrain Go-Kart...",
+    description:
+        "Experience the thrill of outdoor adventures with our Sleek All-Terrain Go-Kart...",
     category: "Toys",
     image: "https://i.imgur.com/Ex5x3IU.jpg",
   ),
   ProductModel(
     code: "47",
     title: "Radiant Citrus Eau de Parfum",
-    description: "Indulge in the essence of summer with this vibrant citrus-scented Eau de Parfum...",
+    description:
+        "Indulge in the essence of summer with this vibrant citrus-scented Eau de Parfum...",
     category: "Accessories",
     image: "https://i.imgur.com/xPDwUb3.jpg",
   ),
@@ -491,14 +529,16 @@ List<ProductModel> productList = [
   ProductModel(
     code: "49",
     title: "Chic Transparent Fashion Handbag",
-    description: "Elevate your style with our Chic Transparent Fashion Handbag...",
+    description:
+        "Elevate your style with our Chic Transparent Fashion Handbag...",
     category: "Accessories",
     image: "https://i.imgur.com/Lqaqz59.jpg",
   ),
   ProductModel(
     code: "50",
     title: "Trendy Pink-Tinted Sunglasses",
-    description: "Step up your style game with these fashionable black-framed, pink-tinted sunglasses...",
+    description:
+        "Step up your style game with these fashionable black-framed, pink-tinted sunglasses...",
     category: "Accessories",
     image: "https://i.imgur.com/0qQBkxX.jpg",
   ),
@@ -509,14 +549,7 @@ List<ProductModel> productList = [
     category: "Clothing",
     image: "https://i.imgur.com/cHddUCu.jpeg",
   ),
-
-
 ];
-
-
-
-
-
 
 List<ProductModel> products = [
   ProductModel(

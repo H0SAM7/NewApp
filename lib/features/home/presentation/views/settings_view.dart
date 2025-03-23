@@ -8,9 +8,14 @@ import 'package:my_visitor/features/Notifications/services/send_notifications_vi
 import 'package:my_visitor/features/Notifications/views/notifi_view.dart';
 import 'package:my_visitor/features/admins/presentation/views/add_products_view.dart';
 import 'package:my_visitor/features/admins/presentation/views/delete_view.dart';
+import 'package:my_visitor/features/admins/presentation/views/update_view.dart';
+import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
+import 'package:my_visitor/features/auth/screens/forget_view.dart';
 import 'package:my_visitor/features/cart/manager/cart_cubit/cart_cubit.dart';
 import 'package:my_visitor/features/cart/views/cart_view.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/setting_container.dart';
+import 'package:my_visitor/profile/views/my_products_view.dart';
+import 'package:my_visitor/profile/views/profile_screen.dart';
 
 // ignore: must_be_immutable
 class SettingsScreen extends StatefulWidget {
@@ -39,8 +44,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -53,14 +56,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       child: AdminSettings(),
                     )
                   : SizedBox(),
+              SettingContainer(
+                child: ItemSetting(
+                  leading: Icon(
+                    Icons.person,
+                    color: redColor,
+                  ),
+                  title: 'Profile',
+                  onTap: () async {
+                    Navigator.pushNamed(context, ProfileScreen.id);
+                  },
+                ),
+              ),
               const SettingContainer(
                 child: SettingsView(),
+              ),
+              SettingContainer(
+                child: ItemSetting(
+                  leading: Icon(
+                    Icons.password_outlined,
+                    color: redColor,
+                  ),
+                  title: 'Forget Password',
+                  onTap: () async {
+                    Navigator.pushNamed(context, ForgetView.id);
+                  },
+                ),
               ),
               SettingContainer(
                 child: ItemSetting(
                   leading: Image.asset(Assets.iconsLogoutIcon),
                   title: 'Log out',
                   onTap: () async {
+                    SharedPreference().setBool('admin', false);
                     await FirebaseAuth.instance.signOut();
                   },
                 ),
@@ -85,11 +113,21 @@ class SettingsView extends StatelessWidget {
         ItemSetting(
           leading: Icon(
             Icons.add,
-            color: orangeColor,
+            color: redColor,
           ),
           title: 'Add Product',
           onTap: () {
             Navigator.pushNamed(context, AddProductsView.id);
+          },
+        ),
+        ItemSetting(
+          leading: Icon(
+            Icons.update_sharp,
+            color: redColor,
+          ),
+          title: 'Update Product',
+          onTap: () async {
+            Navigator.pushNamed(context, UpdateProductsView.id);
           },
         ),
         ItemSetting(
@@ -100,6 +138,18 @@ class SettingsView extends StatelessWidget {
 
             Navigator.pushNamed(context, CartView.id);
           },
+        ),
+        ItemSetting(
+          onTap: () async {
+            await BlocProvider.of<CartCubit>(context).fetchMyProducts();
+
+            Navigator.pushNamed(context, MyProductsView.id);
+          },
+          leading: Icon(
+            Icons.my_library_add,
+            color: redColor,
+          ),
+          title: 'My Products',
         ),
         ItemSetting(
           onTap: () {
@@ -113,7 +163,6 @@ class SettingsView extends StatelessWidget {
   }
 }
 
-
 class AdminSettings extends StatelessWidget {
   const AdminSettings({
     super.key,
@@ -126,25 +175,24 @@ class AdminSettings extends StatelessWidget {
         ItemSetting(
           leading: Icon(
             Icons.remove,
-            color: orangeColor,
+            color: redColor,
           ),
           title: 'Delete Product',
           onTap: () {
-           Navigator.pushNamed(context, DeleteProductsView.id);
+            Navigator.pushNamed(context, DeleteProductsView.id);
           },
         ),
         ItemSetting(
           leading: Image.asset(Assets.iconsCartIcon),
           title: 'Send Notifications',
           onTap: () async {
-             Navigator.pushNamed(context, SendNotifactionsSendView.id);
+            Navigator.pushNamed(context, SendNotifactionsSendView.id);
           },
         ),
       ],
     );
   }
 }
-
 
 class ItemSetting extends StatelessWidget {
   const ItemSetting({super.key, required this.title, this.leading, this.onTap});

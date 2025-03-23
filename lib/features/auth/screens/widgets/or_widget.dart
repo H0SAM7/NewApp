@@ -17,16 +17,16 @@ class OrWidget extends StatelessWidget {
           Container(
             height: 2,
             width: 30,
-            color: orangeColor,
+            color: redColor,
           ),
           Text(
             "OR",
-            style: TextStyle(color: orangeColor),
+            style: TextStyle(color: redColor),
           ),
           Container(
             height: 2,
             width: 30,
-            color: orangeColor,
+            color: redColor,
           )
         ],
       ),

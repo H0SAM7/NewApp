@@ -33,7 +33,7 @@ void showCustomAlert({
       DialogButton(
         onPressed: onPressed,
         width: 120,
-        color: orangeColor,
+        color: redColor,
         child: Text(
           actionTitle,
           style: const TextStyle(

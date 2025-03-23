@@ -17,7 +17,7 @@ final String subtitle;
       padding: const EdgeInsets.all(4.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: orangeColor),
+          border: Border.all(color: redColor),
           borderRadius: BorderRadius.circular(16)
         ),
         child: ListTile(

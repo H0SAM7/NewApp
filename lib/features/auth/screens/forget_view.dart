@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
-import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
@@ -37,6 +36,8 @@ class _ForgetViewState extends State<ForgetView> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.sizeOf(context);
+
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
@@ -65,6 +66,12 @@ class _ForgetViewState extends State<ForgetView> {
         }
       },
       child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Reset Password',
+            style: AppStyles.style32(context, Colors.black),
+          ),
+        ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
@@ -72,17 +79,12 @@ class _ForgetViewState extends State<ForgetView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                   const SizedBox(
-                        height: 40,
-                      ),
-                      
-                CustomBack(),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: size.height * .20,
                 ),
                 Text(
                   'Forgot Password?',
-                  style: AppStyles.style32(context, Colors.white),
+                  style: AppStyles.style32(context, Colors.black),
                 ),
                 const SizedBox(
                   height: 5,
@@ -124,7 +126,7 @@ class _ForgetViewState extends State<ForgetView> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, LoginView.id);
+                    Navigator.pushReplacementNamed(context, LoginView.id);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -132,11 +134,11 @@ class _ForgetViewState extends State<ForgetView> {
                       Text(
                         "Remember Password?",
                         //   textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                       ),
                       Text(
                         " Login",
-                        style: TextStyle(color: orangeColor),
+                        style: TextStyle(color: redColor),
                       ),
                     ],
                   ),

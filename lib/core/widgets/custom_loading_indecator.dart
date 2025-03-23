@@ -17,7 +17,7 @@ class CustomLoadingIndicator extends StatelessWidget {
         colors: [
           Color(0xffCFE2FC),
           Color(0xff4392F9),
-          orangeColor,
+          redColor,
         ],
       ),
     ));

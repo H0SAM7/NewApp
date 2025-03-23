@@ -5,6 +5,7 @@ import 'package:my_visitor/features/Notifications/views/notifi_view.dart';
 import 'package:my_visitor/features/admins/data/models/product_model.dart';
 import 'package:my_visitor/features/admins/presentation/views/add_products_view.dart';
 import 'package:my_visitor/features/admins/presentation/views/delete_view.dart';
+import 'package:my_visitor/features/admins/presentation/views/update_view.dart';
 import 'package:my_visitor/features/auth/screens/forget_view.dart';
 import 'package:my_visitor/features/auth/screens/login_view.dart';
 import 'package:my_visitor/features/auth/screens/register_view.dart';
@@ -15,6 +16,8 @@ import 'package:my_visitor/features/home/presentation/views/home_view.dart';
 import 'package:my_visitor/features/home/presentation/views/product_details_view.dart';
 import 'package:my_visitor/features/home/presentation/views/settings_view.dart';
 import 'package:my_visitor/features/splash/first_screen.dart';
+import 'package:my_visitor/profile/views/my_products_view.dart';
+import 'package:my_visitor/profile/views/profile_screen.dart';
 
 abstract class AppRoutes {
   //     BottomNavigator
@@ -36,7 +39,10 @@ abstract class AppRoutes {
     FirstScreen.id: (context) => const FirstScreen(),
     DeleteProductsView.id: (context) =>  DeleteProductsView(),
     SendNotifactionsSendView.id: (context) =>  SendNotifactionsSendView(),
+    UpdateProductsView.id: (context) =>  UpdateProductsView(),
+    ProfileScreen.id: (context) =>  ProfileScreen(),
 
+    MyProductsView.id: (context) =>  MyProductsView(),
 
 
     
@@ -59,7 +65,7 @@ abstract class AppRoutes {
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(
-            body: Center(child: Text('Page Not Found')),
+            body: Center(child: Text('Page Not Found'),),
           ),
         );
     }

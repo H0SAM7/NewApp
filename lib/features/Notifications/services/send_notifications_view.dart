@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:my_visitor/constants.dart';
-import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
 import 'package:my_visitor/features/Notifications/services/send_notifications.dart';
 import 'package:my_visitor/features/auth/screens/widgets/custom_send_button.dart';
@@ -90,7 +89,7 @@ class _sendNotifactionsSendViewState extends State<SendNotifactionsSendView> {
       appBar: AppBar(
         title: const Text('Send Notification'),
         elevation: 0,
-        backgroundColor: orangeColor,
+        backgroundColor: redColor,
       ),
       body: Column(
         children: [
@@ -112,7 +111,7 @@ class _sendNotifactionsSendViewState extends State<SendNotifactionsSendView> {
           ),
           CustomSendButton(
             label: 'Send',
-            color: orangeColor,
+            color: redColor,
             txtcolor: Colors.white,
             onTap: () async {
               try {

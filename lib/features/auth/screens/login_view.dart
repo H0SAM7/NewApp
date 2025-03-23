@@ -1,6 +1,4 @@
 import 'dart:developer';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +6,6 @@ import 'package:my_visitor/bottom_navv_bar.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/shared_pref.dart';
-import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
 import 'package:my_visitor/features/admins/admin_account.dart';
@@ -117,7 +114,7 @@ class _LoginViewState extends State<LoginView> {
                           },
                           child: Text(
                             'Forget Password',
-                            style: TextStyle(color: orangeColor),
+                            style: TextStyle(color: redColor),
                           ),
                         ),
                       ),
@@ -136,7 +133,7 @@ class _LoginViewState extends State<LoginView> {
                                 log('Admin Mode');
                                 SharedPreference().setBool('admin', true);
                               }
-                              SharedPreference().setBool('admin', false);
+                          
                               var admin = await SharedPreference().getBool(
                                 'admin',
                               );
